@@ -422,6 +422,12 @@ Small Device Styles
 
 }
 
+.share-buttons {
+  height: 10px;
+  line-height: 10px;
+  
+}
+
 .disclaimer, .disclaimer-note {
   font-size: 50%;
 }
