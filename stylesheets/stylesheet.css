@@ -421,3 +421,7 @@ Small Device Styles
   }
 
 }
+
+.disclaimer, .disclaimer-note {
+  font-size: 50%;
+}
