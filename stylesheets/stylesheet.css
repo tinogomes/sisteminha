@@ -423,9 +423,11 @@ Small Device Styles
 }
 
 .share-buttons {
-  height: 10px;
-  line-height: 10px;
-  
+  height: 60px;
+}
+
+.tw-share, .fb-like {
+  float: left;
 }
 
 .disclaimer, .disclaimer-note {
