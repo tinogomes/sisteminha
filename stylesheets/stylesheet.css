@@ -264,7 +264,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 720px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -432,4 +432,10 @@ Small Device Styles
 
 .disclaimer, .disclaimer-note {
   font-size: 50%;
+}
+
+.advertising {
+  line-height: 0;
+  font-size: 0.7em;
+  margin-bottom: 5px;
 }
