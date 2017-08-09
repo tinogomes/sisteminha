@@ -257,6 +257,23 @@ form {
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
+.social-networks {
+  margin: 0 auto;
+  width: 100px;
+}
+
+.social-networks a {
+  text-decoration: none;
+}
+
+.social-networks img {
+  border: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+}
 
 .outer {
   width: 100%;
@@ -291,6 +308,7 @@ Full-Width Styles
   background: -ms-linear-gradient(top, #373737, #212121);
   background: -o-linear-gradient(top, #373737, #212121);
   background: linear-gradient(top, #373737, #212121);
+  min-height: 200px;
 }
 
 #header_wrap .inner {
