@@ -2,47 +2,207 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="5;url=https://docs.google.com/spreadsheets/d/1f5BVU7YHkMoTXOoJBezS9Dp7gWCe-Ip9oylp4DSrhVI/edit?gid=927381976#gid=927381976">
-    <title>Redirecionamento</title>
+    <title>Redirecionamento em 5 segundos</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            overflow: hidden;
         }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         .container {
             text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .link {
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown {
+            font-size: 6rem;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #4CAF50;
+            text-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+            animation: pulse 1s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .redirect-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4285f4;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            font-size: 1.4rem;
             font-weight: bold;
-            transition: background-color 0.3s;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
         }
-        .link:hover {
-            background-color: #3367d6;
+        
+        .redirect-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #66BB6A, #388E3C);
+        }
+        
+        .redirect-link:active {
+            transform: translateY(1px);
+        }
+        
+        .loading-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            border-radius: 5px;
+            transition: width 1s linear;
+        }
+        
+        .info {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #ccc;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                font-size: 4rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+            }
+            
+            .redirect-link {
+                padding: 12px 30px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <p>Você será redirecionado automaticamente em 5 segundos...</p>
-        <a href="https://docs.google.com/spreadsheets/d/1f5BVU7YHkMoTXOoJBezS9Dp7gWCe-Ip9oylp4DSrhVI/edit?gid=927381976#gid=927381976" class="link">
-            Redirecionar agora
+        <h1>Redirecionamento Automático</h1>
+        
+        <div class="countdown" id="countdown">5</div>
+        
+        <div class="message">
+            <p>Você será redirecionado para a planilha do Google em <span id="seconds">5</span> segundos</p>
+            <p>ou Clique no botão abaixo para ser redirecionado imediatamente</p>
+        </div>
+        
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
+        </div>
+        
+        <a href="https://docs.google.com/spreadsheets/d/1f5BVU7YHkMoTXOoJBezS9Dp7gWCe-Ip9oylp4DSrhVI/edit?gid=927381976#gid=927381976" 
+           class="redirect-link">
+            Redirecionar Agora
         </a>
+        
+        <div class="info">
+            <p>Esta página usa redirecionamento automático via meta tag HTML e JavaScript</p>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countdownElement = document.getElementById('countdown');
+            const secondsElement = document.getElementById('seconds');
+            const progressBar = document.getElementById('loadingProgress');
+            let seconds = 5;
+            
+            // Atualizar a barra de progresso
+            function updateProgressBar() {
+                const progress = (100 - ((seconds - 1) / 5) * 100);
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Iniciar a contagem regressiva
+            const countdownInterval = setInterval(function() {
+                seconds--;
+                
+                if (seconds >= 0) {
+                    countdownElement.textContent = seconds;
+                    secondsElement.textContent = seconds;
+                    updateProgressBar();
+                    
+                    // Efeito visual quando chegar a 0
+                    if (seconds === 0) {
+                        countdownElement.style.color = '#FF5252';
+                        countdownElement.style.textShadow = '0 0 20px rgba(255, 82, 82, 0.8)';
+                    }
+                } else {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+            
+            // Atualizar barra de progresso inicial
+            updateProgressBar();
+        });
+    </script>
 </body>
 </html>
