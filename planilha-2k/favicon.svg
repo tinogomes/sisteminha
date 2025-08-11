@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Fundo da planilha -->
+  <rect width="32" height="32" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- Linhas horizontais da planilha -->
+  <line x1="0" y1="8" x2="32" y2="8" stroke="#d0d0d0" stroke-width="0.5"/>
+  <line x1="0" y1="16" x2="32" y2="16" stroke="#d0d0d0" stroke-width="0.5"/>
+  <line x1="0" y1="24" x2="32" y2="24" stroke="#d0d0d0" stroke-width="0.5"/>
+  
+  <!-- Linhas verticais da planilha -->
+  <line x1="8" y1="0" x2="8" y2="32" stroke="#d0d0d0" stroke-width="0.5"/>
+  <line x1="16" y1="0" x2="16" y2="32" stroke="#d0d0d0" stroke-width="0.5"/>
+  <line x1="24" y1="0" x2="24" y2="32" stroke="#d0d0d0" stroke-width="0.5"/>
+  
+  <!-- Cabeçalho da planilha (primeira linha) -->
+  <rect x="0" y="0" width="32" height="8" fill="#f8f9fa" stroke="#d0d0d0" stroke-width="0.5"/>
+  
+  <!-- Caracteres "2k" sobrepostos -->
+  <text x="16" y="20" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2563eb">2k</text>
+  
+  <!-- Sombra sutil para dar profundidade -->
+  <text x="16" y="21" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e40af" opacity="0.3">2k</text>
+</svg>

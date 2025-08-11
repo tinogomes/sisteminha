@@ -1,208 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5;url=https://docs.google.com/spreadsheets/d/1f5BVU7YHkMoTXOoJBezS9Dp7gWCe-Ip9oylp4DSrhVI/edit?gid=927381976#gid=927381976">
-    <title>Redirecionamento em 5 segundos</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
-            overflow: hidden;
-        }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .container {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            width: 90%;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .countdown {
-            font-size: 6rem;
-            font-weight: bold;
-            margin: 30px 0;
-            color: #4CAF50;
-            text-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
-            animation: pulse 1s infinite alternate;
-        }
-        
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-        
-        .message {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .redirect-link {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(to right, #4CAF50, #2E7D32);
-            color: white;
-            text-decoration: none;
-            font-size: 1.4rem;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 1px;
-        }
-        
-        .redirect-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to right, #66BB6A, #388E3C);
-        }
-        
-        .redirect-link:active {
-            transform: translateY(1px);
-        }
-        
-        .loading-bar {
-            height: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            margin: 30px 0;
-            overflow: hidden;
-        }
-        
-        .loading-progress {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
-            border-radius: 5px;
-            transition: width 1s linear;
-        }
-        
-        .info {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #ccc;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .countdown {
-                font-size: 4rem;
-            }
-            
-            .message {
-                font-size: 1.1rem;
-            }
-            
-            .redirect-link {
-                padding: 12px 30px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <title>Planilha 2K Extra - Controle de Operações de Day Trade</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <h1>Redirecionamento Automático</h1>
-        
-        <div class="countdown" id="countdown">5</div>
-        
-        <div class="message">
-            <p>Você será redirecionado para a planilha do Google em <span id="seconds">5</span> segundos</p>
-            <p>ou Clique no botão abaixo para ser redirecionado imediatamente</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Planilha 2K Extra</h1>
+                    <p>Controle de Operações de Day Trade do Projeto 2K Extra</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="loading-bar">
-            <div class="loading-progress" id="loadingProgress"></div>
-        </div>
-        
-        <a href="https://docs.google.com/spreadsheets/d/1f5BVU7YHkMoTXOoJBezS9Dp7gWCe-Ip9oylp4DSrhVI/edit?gid=927381976#gid=927381976" 
-           class="redirect-link">
-            Redirecionar Agora
-        </a>
-        
-        <div class="info">
-            <p>Esta página usa redirecionamento automático via meta tag HTML e JavaScript</p>
-        </div>
-    </div>
+    </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const countdownElement = document.getElementById('countdown');
-            const secondsElement = document.getElementById('seconds');
-            const progressBar = document.getElementById('loadingProgress');
-            let seconds = 5;
-            
-            // Atualizar a barra de progresso
-            function updateProgressBar() {
-                const progress = (100 - ((seconds - 1) / 5) * 100);
-                progressBar.style.width = `${progress}%`;
-            }
-            
-            // Iniciar a contagem regressiva
-            const countdownInterval = setInterval(function() {
-                seconds--;
-                
-                if (seconds >= 0) {
-                    countdownElement.textContent = seconds;
-                    secondsElement.textContent = seconds;
-                    updateProgressBar();
-                    
-                    // Efeito visual quando chegar a 0
-                    if (seconds === 0) {
-                        countdownElement.style.color = '#FF5252';
-                        countdownElement.style.textShadow = '0 0 20px rgba(255, 82, 82, 0.8)';
-                    }
-                } else {
-                    clearInterval(countdownInterval);
-                }
-            }, 1000);
-            
-            // Atualizar barra de progresso inicial
-            updateProgressBar();
-        });
-    </script>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Domine o Day Trade do Projeto 2k Extra com a <span class="highlight">Planilha Especializada</span></h2>
+            <p>A ferramenta definitiva para organizar suas operações, calcular resultados e maximizar seus lucros no mercado financeiro.</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Usar a Planilha 2K Extra</h2>
+                <p>Assista ao tutorial completo e aprenda a configurar e utilizar a planilha para otimizar suas operações de day trade.</p>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YxpaRVYKx0U" title="Tutorial Planilha 2K Extra" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Button Section -->
+    <section class="button-section">
+        <div class="container">
+            <a href="https://docs.google.com/spreadsheets/d/13Qyc2crRs0EyneFEyPTSj-RtjKJuD2oJRmaRmvwsbVY/edit?usp=sharing" class="btn" target="_blank">
+                Copiar Planilha Agora <i class="fas fa-arrow-right"></i>
+            </a>
+            <p class="btn-description">Clique no botão acima para acessar a planilha, faça sua cópia e comece a organizar suas operações de day trade como um profissional.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefícios da Planilha</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Cálculos Automatizados</h3>
+                    <p>Cálculos instantâneos de resultados para você focar apenas nas suas "caixinhas".</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Análise de Desempenho</h3>
+                    <p>Relatórios completos e gráficos para analisar seu desempenho e identificar pontos de melhoria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre o Projeto</h3>
+                    <p>O 2K Extra nasceu para me ajudar a organizar minhas operações com as caixinhas do Projeto 2K Extra, mas resolvi compartilhar com a comunidade.</p>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contato</h3>
+                    <form 
+                        class="contact-form"
+                        id="contactForm"
+                        action="https://script.google.com/macros/s/AKfycbybG_AZIhcyK4ffWV4RkYz4eU5K1X3IU9ds2TUmzvEK-T6xODsIBHPAp2dP36x9cBEx/exec"
+                        method="POST"
+                        target="hidden-iframe">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Seu email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Sua mensagem" rows="4" maxlength="255" required></textarea>
+                            <div class="char-counter">
+                                <span id="charCount">0</span>/255 caracteres
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-contact" id="submitBtn">
+                            <span class="btn-text">Enviar Mensagem <i class="fas fa-paper-plane"></i></span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Enviando...
+                            </span>
+                        </button>
+                    </form>
+                    <!-- Iframe oculto para receber a resposta do formulário -->
+                    <iframe name="hidden-iframe" id="hidden-iframe" style="display: none;"></iframe>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 sisteminha.com. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
