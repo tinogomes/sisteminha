@@ -257,9 +257,37 @@ form {
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
+.footer-asides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 10px;
+}
+
 .social-networks {
-  margin: 0 auto;
-  width: 100px;
+  margin: 0;
+  width: auto;
+}
+
+.language-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.language-selector a {
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.language-selector a:hover {
+  opacity: 1;
+  text-decoration: none;
 }
 
 .social-networks a {
